@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="build/.apt_generated"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/opt/android-sdk/platforms/android-8/android.jar"/>
+	<classpathentry kind="lib" path="/opt/android-sdk/add-ons/addon-google_apis-google_inc_-8/libs/maps.jar"/>
+	<classpathentry kind="lib" path="/Library/Application Support/Titanium/mobilesdk/osx/2.1.0/android/titanium.jar"/>
+	<classpathentry kind="lib" path="/Library/Application Support/Titanium/mobilesdk/osx/2.1.0/android/js.jar"/>
+	<classpathentry kind="lib" path="/Library/Application Support/Titanium/mobilesdk/osx/2.1.0/android/kroll-common.jar"/>
+	<classpathentry kind="lib" path="/Library/Application Support/Titanium/mobilesdk/osx/2.1.0/android/kroll-apt.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
