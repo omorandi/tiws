@@ -55,7 +55,11 @@
     [self clean];
 
     if ([self _hasListeners:@"error"]) {
-        NSDictionary* event = [NSDictionary dictionaryWithObjectsAndKeys:@"reconnect",@"advice",nil];
+        NSDictionary* event = [NSDictionary dictionaryWithObjectsAndKeys:
+                               @"reconnect",@"advice",
+                               [error description],@"error",
+                               nil];
+        
         [self fireEvent:@"error" withObject:event];
     }
 }
