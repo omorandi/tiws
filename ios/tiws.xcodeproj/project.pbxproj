@@ -24,13 +24,10 @@
 /* Begin PBXBuildFile section */
 		24DD6CF91134B3F500162E58 /* NetIamyellowTiwsModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DD6CF71134B3F500162E58 /* NetIamyellowTiwsModule.h */; };
 		24DD6CFA1134B3F500162E58 /* NetIamyellowTiwsModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6CF81134B3F500162E58 /* NetIamyellowTiwsModule.m */; };
-		24DE9E1111C5FE74003F90F6 /* NetIamyellowTiwsModuleAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DE9E0F11C5FE74003F90F6 /* NetIamyellowTiwsModuleAssets.h */; };
-		24DE9E1211C5FE74003F90F6 /* NetIamyellowTiwsModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE9E1011C5FE74003F90F6 /* NetIamyellowTiwsModuleAssets.m */; };
 		AA747D9F0F9514B9006C5449 /* NetIamyellowTiws_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* NetIamyellowTiws_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		FDA4B23E15A9A22B002FA1A7 /* NetIamyellowTiwsWSProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = FDA4B23C15A9A22B002FA1A7 /* NetIamyellowTiwsWSProxy.h */; };
 		FDA4B23F15A9A22B002FA1A7 /* NetIamyellowTiwsWSProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA4B23D15A9A22B002FA1A7 /* NetIamyellowTiwsWSProxy.m */; };
-		FDA4B24215A9A24D002FA1A7 /* SRWebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = FDA4B24115A9A24D002FA1A7 /* SRWebSocket.h */; };
 		FDA4B24815A9A2A4002FA1A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		FDA4B25A15A9A2E5002FA1A7 /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = FDA4B25415A9A2E5002FA1A7 /* base64.c */; };
 		FDA4B25B15A9A2E5002FA1A7 /* base64.h in Headers */ = {isa = PBXBuildFile; fileRef = FDA4B25515A9A2E5002FA1A7 /* base64.h */; };
@@ -62,14 +59,11 @@
 		24DD6CF71134B3F500162E58 /* NetIamyellowTiwsModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetIamyellowTiwsModule.h; path = Classes/NetIamyellowTiwsModule.h; sourceTree = "<group>"; };
 		24DD6CF81134B3F500162E58 /* NetIamyellowTiwsModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetIamyellowTiwsModule.m; path = Classes/NetIamyellowTiwsModule.m; sourceTree = "<group>"; };
 		24DD6D1B1134B66800162E58 /* titanium.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = titanium.xcconfig; sourceTree = "<group>"; };
-		24DE9E0F11C5FE74003F90F6 /* NetIamyellowTiwsModuleAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetIamyellowTiwsModuleAssets.h; path = Classes/NetIamyellowTiwsModuleAssets.h; sourceTree = "<group>"; };
-		24DE9E1011C5FE74003F90F6 /* NetIamyellowTiwsModuleAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetIamyellowTiwsModuleAssets.m; path = Classes/NetIamyellowTiwsModuleAssets.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* NetIamyellowTiws_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetIamyellowTiws_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libNetIamyellowTiws.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNetIamyellowTiws.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDA4B23C15A9A22B002FA1A7 /* NetIamyellowTiwsWSProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetIamyellowTiwsWSProxy.h; path = Classes/NetIamyellowTiwsWSProxy.h; sourceTree = "<group>"; };
 		FDA4B23D15A9A22B002FA1A7 /* NetIamyellowTiwsWSProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetIamyellowTiwsWSProxy.m; path = Classes/NetIamyellowTiwsWSProxy.m; sourceTree = "<group>"; };
-		FDA4B24115A9A24D002FA1A7 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SRWebSocket.h; path = Classes/SRWebSocket.h; sourceTree = "<group>"; };
 		FDA4B24715A9A2A4002FA1A7 /* libSocketRocket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSocketRocket.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDA4B24B15A9A2A4002FA1A7 /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
 		FDA4B25415A9A2E5002FA1A7 /* base64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = base64.c; sourceTree = "<group>"; };
@@ -133,11 +127,8 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				FDA4B24115A9A24D002FA1A7 /* SRWebSocket.h */,
 				FDA4B23C15A9A22B002FA1A7 /* NetIamyellowTiwsWSProxy.h */,
 				FDA4B23D15A9A22B002FA1A7 /* NetIamyellowTiwsWSProxy.m */,
-				24DE9E0F11C5FE74003F90F6 /* NetIamyellowTiwsModuleAssets.h */,
-				24DE9E1011C5FE74003F90F6 /* NetIamyellowTiwsModuleAssets.m */,
 				24DD6CF71134B3F500162E58 /* NetIamyellowTiwsModule.h */,
 				24DD6CF81134B3F500162E58 /* NetIamyellowTiwsModule.m */,
 			);
@@ -184,9 +175,7 @@
 			files = (
 				AA747D9F0F9514B9006C5449 /* NetIamyellowTiws_Prefix.pch in Headers */,
 				24DD6CF91134B3F500162E58 /* NetIamyellowTiwsModule.h in Headers */,
-				24DE9E1111C5FE74003F90F6 /* NetIamyellowTiwsModuleAssets.h in Headers */,
 				FDA4B23E15A9A22B002FA1A7 /* NetIamyellowTiwsWSProxy.h in Headers */,
-				FDA4B24215A9A24D002FA1A7 /* SRWebSocket.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,7 +276,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				24DD6CFA1134B3F500162E58 /* NetIamyellowTiwsModule.m in Sources */,
-				24DE9E1211C5FE74003F90F6 /* NetIamyellowTiwsModuleAssets.m in Sources */,
 				FDA4B23F15A9A22B002FA1A7 /* NetIamyellowTiwsWSProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
