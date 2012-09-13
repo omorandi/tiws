@@ -24,20 +24,8 @@
     return [super init];
 }
 
--(void)clean
-{
-    if (WS) {
-        if (connected) {
-            [WS close];
-        }
-        RELEASE_TO_NIL(WS);
-    }
-}
-
 -(void)dealloc
 {
-    [self clean];
-
     [super dealloc];
 }
 
@@ -45,6 +33,8 @@
 
 -(void)webSocketDidOpen:(SRWebSocket*)webSocket
 {
+    connected  = YES;
+
     if ([self _hasListeners:@"open"]) {
         [self fireEvent:@"open" withObject:nil];
     }
@@ -52,8 +42,8 @@
 
 -(void)webSocket:(SRWebSocket*)webSocket didFailWithError:(NSError*)error
 {
-    [self clean];
-
+    connected  = NO;
+    
     if ([self _hasListeners:@"error"]) {
         NSDictionary* event = [NSDictionary dictionaryWithObjectsAndKeys:
                                @"reconnect",@"advice",
@@ -67,8 +57,6 @@
 -(void)webSocket:(SRWebSocket*)webSocket didCloseWithCode:(NSInteger)code reason:(NSString*)reason wasClean:(BOOL)wasClean
 {
     connected = NO;
-    
-    [self clean];
 
     if ([self _hasListeners:@"close"]) {
         NSDictionary* event = [NSDictionary dictionaryWithObjectsAndKeys:NUMINT(code),@"code",reason,@"reason",nil];
@@ -88,7 +76,7 @@
 
 -(void)open:(id)url
 {
-    if (connected || WS) {
+    if (WS || connected) {
         return;
     }
     
@@ -101,14 +89,16 @@
 
 -(void)close:(id)args
 {
-    [self clean];
+    if (WS && connected) {
+        [WS close];
+    }
 }
 
 -(void)send:(id)msg
 {
     ENSURE_SINGLE_ARG(msg, NSString);
 
-    if (WS) {
+    if (WS && connected) {
         [WS send:msg];
     }    
 }
