@@ -26,6 +26,11 @@
 
 -(void)dealloc
 {
+    if ([WS retainCount] == 1) {
+        // as SRWebScoket library uses ARC, let's be careful releasing the object
+        // so, if retain counter = 1, we are sure nobody else retains it
+        RELEASE_TO_NIL(WS);
+    }
     [super dealloc];
 }
 
@@ -82,7 +87,7 @@
     
     ENSURE_SINGLE_ARG(url, NSString);
 
-    WS = [[[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]] autorelease];
+    WS = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
     WS.delegate = self;
     [WS open];
 }
