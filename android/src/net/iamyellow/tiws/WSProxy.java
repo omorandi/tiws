@@ -29,12 +29,8 @@ import android.app.Activity;
 
 import com.codebutler.android_websockets.WebSocketClient;
 
-import android.app.Activity;
-
 @Kroll.proxy(creatableInModule = TiwsModule.class)
 public class WSProxy extends KrollProxy implements OnLifecycleEvent {
-	private static final String LCAT = "WSProxy";
-
 	private WebSocketClient client;
 	private boolean connected = false;
 
@@ -56,7 +52,9 @@ public class WSProxy extends KrollProxy implements OnLifecycleEvent {
 		}
 		client = null;
 		
-		Log.d(LCAT, "* websocket destroyed");
+		if (TiwsModule.DBG) {
+			Log.d(TiwsModule.LCAT, "* websocket destroyed");
+		}
 	}
 
 	// Context Lifecycle events
@@ -94,7 +92,9 @@ public class WSProxy extends KrollProxy implements OnLifecycleEvent {
 		final KrollProxy self = this;
 
 		try {
-			Log.d(LCAT, "* creating websocket");
+			if (TiwsModule.DBG) {
+				Log.d(TiwsModule.LCAT, "* creating websocket");
+			}
 			
 			client = new WebSocketClient(new URI(uri), new WebSocketClient.Handler() {
 				@Override
@@ -121,7 +121,9 @@ public class WSProxy extends KrollProxy implements OnLifecycleEvent {
 						return;
 					}
 					
-					Log.d(LCAT, "* websocket error = " + error);
+					if (TiwsModule.DBG) {
+						Log.d(TiwsModule.LCAT, "* websocket error", error);
+					}
 
 					KrollDict event = new KrollDict();
 					event.put("advice", "reconnect");
@@ -137,9 +139,9 @@ public class WSProxy extends KrollProxy implements OnLifecycleEvent {
 						return;
 					}
 
-					Log.d(LCAT, "* websocket disconnected; reason = " + reason
-							+ "; code = " + String.valueOf(code));
-
+					if (TiwsModule.DBG) {
+						Log.d(TiwsModule.LCAT, "* creating disconnected; reason = " + reason + "; code = " + String.valueOf(code));
+					}
 					KrollDict event = new KrollDict();
 					event.put("code", code);
 					event.put("reason", reason);
@@ -158,8 +160,11 @@ public class WSProxy extends KrollProxy implements OnLifecycleEvent {
 			}, null);
 			
 			client.connect();
-		} catch (URISyntaxException ex) {
-			Log.d(LCAT, "* websocket exception " + ex.toString());
+		} 
+		catch (URISyntaxException ex) {
+			if (TiwsModule.DBG) {
+				Log.d(TiwsModule.LCAT, "* creating exception", ex);
+			}
 			cleanup();
 		}
 	}

@@ -18,18 +18,11 @@ package net.iamyellow.tiws;
 
 import org.appcelerator.kroll.KrollModule;
 import org.appcelerator.kroll.annotations.Kroll;
-
-import org.appcelerator.titanium.TiApplication;
-import org.appcelerator.kroll.common.Log;
 import org.appcelerator.kroll.common.TiConfig;
 
-
 @Kroll.module(name="Tiws", id="net.iamyellow.tiws")
-public class TiwsModule extends KrollModule
-{
-
-	// Standard Debugging variables
-	private static final String LCAT = "TiwsModule";
-	private static final boolean DBG = TiConfig.LOGD;
+public class TiwsModule extends KrollModule {
+	public static final String LCAT = "TiwsModule";
+	public static final boolean DBG = TiConfig.LOGD;
 }
 

@@ -26,6 +26,8 @@ package com.codebutler.android_websockets;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
+import net.iamyellow.tiws.TiwsModule;
+
 import org.apache.http.*;
 import org.apache.http.client.HttpResponseException;
 import org.apache.http.message.BasicLineParser;
@@ -47,8 +49,6 @@ import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 public class WebSocketClient {
-    private static final String TAG = "WebSocketClient";
-
     private URI                      mURI;
     private Handler                  mHandler;
     private Socket                   mSocket;
@@ -139,12 +139,16 @@ public class WebSocketClient {
                     mParser.start(stream);
 
                 } catch (EOFException ex) {
-                    Log.d(TAG, "WebSocket EOF!", ex);
+            		if (TiwsModule.DBG) {
+                        Log.d(TiwsModule.LCAT, "WebSocket EOF!", ex);
+            		}
                     mHandler.onDisconnect(0, "EOF");
 
                 } catch (SSLException ex) {
                     // Connection reset by peer
-                    Log.d(TAG, "Websocket SSL error!", ex);
+            		if (TiwsModule.DBG) {
+            			Log.d(TiwsModule.LCAT, "Websocket SSL error!", ex);
+            		}
                     mHandler.onDisconnect(0, "SSL");
 
                 } catch (Exception ex) {
