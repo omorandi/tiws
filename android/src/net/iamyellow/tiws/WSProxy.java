@@ -45,6 +45,7 @@ public class WSProxy extends KrollProxy implements OnLifecycleEvent {
 			return;
 		}
 
+		connected = false;
 		try {
 			client.disconnect();
 		} 
@@ -176,6 +177,8 @@ public class WSProxy extends KrollProxy implements OnLifecycleEvent {
 
 	@Kroll.method
 	public void send(String message) {
-		client.send(message);
+		if (client != null && connected) {
+			client.send(message);
+		}
 	}
 }
