@@ -34,6 +34,10 @@ Creates a websocket object.
 
 Given an URI, opens the connection.
 
+## reconnect (string uri)
+
+Given an URI, reconnect the connection after an event.
+
 ### send (string message)
 
 Sends a string message.
