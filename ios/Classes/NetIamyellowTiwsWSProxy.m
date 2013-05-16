@@ -95,7 +95,7 @@
 {
     WS.delegate = nil;
     [WS close];
-    
+     ENSURE_SINGLE_ARG(url, NSString);
     WS = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
     WS.delegate = self;
     
@@ -106,7 +106,7 @@
 {
     if (WS && connected) {
         [WS close];
-        ENSURE_SINGLE_ARG(url, NSString);
+       
     }
 }
 
