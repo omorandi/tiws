@@ -99,7 +99,7 @@ public class WSProxy extends KrollProxy implements OnLifecycleEvent {
 			
 			client = new WebSocketClient(new URI(uri), new WebSocketClient.Listener() {
 				@Override
-	            public void onMessage(byte[] data) {
+				public void onMessage(byte[] data) {
 					if (client == null) {
 						return;
 					}					

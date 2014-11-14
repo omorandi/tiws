@@ -164,16 +164,16 @@ public class WebSocketClient {
                     mParser.start(stream);
 
                 } catch (EOFException ex) {
-					if (TiwsModule.DBG) {
-                    	Log.d(TiwsModule.LCAT, "WebSocket EOF!", ex);
-					}
+                    if (TiwsModule.DBG) {
+                        Log.d(TiwsModule.LCAT, "WebSocket EOF!", ex);
+                    }
                     mListener.onDisconnect(0, "EOF");
 
                 } catch (SSLException ex) {
                     // Connection reset by peer
-					if (TiwsModule.DBG) {
-                    	Log.d(TiwsModule.LCAT, "Websocket SSL error!", ex);
-					}
+                    if (TiwsModule.DBG) {
+                        Log.d(TiwsModule.LCAT, "Websocket SSL error!", ex);
+                    }
                     mListener.onDisconnect(0, "SSL");
 
                 } catch (Exception ex) {
