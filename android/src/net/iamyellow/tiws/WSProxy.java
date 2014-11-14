@@ -97,7 +97,7 @@ public class WSProxy extends KrollProxy implements OnLifecycleEvent {
 				Log.d(TiwsModule.LCAT, "* creating websocket");
 			}
 			
-			client = new WebSocketClient(new URI(uri), new WebSocketClient.Handler() {
+			client = new WebSocketClient(new URI(uri), new WebSocketClient.Listener() {
 				@Override
 	            public void onMessage(byte[] data) {
 					if (client == null) {
