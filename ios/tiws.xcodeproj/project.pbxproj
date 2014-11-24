@@ -31,8 +31,6 @@
 		FDA4B24815A9A2A4002FA1A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		FDA4B25A15A9A2E5002FA1A7 /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = FDA4B25415A9A2E5002FA1A7 /* base64.c */; };
 		FDA4B25B15A9A2E5002FA1A7 /* base64.h in Headers */ = {isa = PBXBuildFile; fileRef = FDA4B25515A9A2E5002FA1A7 /* base64.h */; };
-		FDA4B25C15A9A2E5002FA1A7 /* NSData+SRB64Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = FDA4B25615A9A2E5002FA1A7 /* NSData+SRB64Additions.h */; };
-		FDA4B25D15A9A2E5002FA1A7 /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA4B25715A9A2E5002FA1A7 /* NSData+SRB64Additions.m */; };
 		FDA4B25E15A9A2E5002FA1A7 /* SRWebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = FDA4B25815A9A2E5002FA1A7 /* SRWebSocket.h */; };
 		FDA4B25F15A9A2E5002FA1A7 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA4B25915A9A2E5002FA1A7 /* SRWebSocket.m */; };
 		FDA4B26015A9A56B002FA1A7 /* libSocketRocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDA4B24715A9A2A4002FA1A7 /* libSocketRocket.a */; };
@@ -68,8 +66,6 @@
 		FDA4B24B15A9A2A4002FA1A7 /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
 		FDA4B25415A9A2E5002FA1A7 /* base64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = base64.c; sourceTree = "<group>"; };
 		FDA4B25515A9A2E5002FA1A7 /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
-		FDA4B25615A9A2E5002FA1A7 /* NSData+SRB64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SRB64Additions.h"; sourceTree = "<group>"; };
-		FDA4B25715A9A2E5002FA1A7 /* NSData+SRB64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SRB64Additions.m"; sourceTree = "<group>"; };
 		FDA4B25815A9A2E5002FA1A7 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
 		FDA4B25915A9A2E5002FA1A7 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,8 +145,6 @@
 			children = (
 				FDA4B25415A9A2E5002FA1A7 /* base64.c */,
 				FDA4B25515A9A2E5002FA1A7 /* base64.h */,
-				FDA4B25615A9A2E5002FA1A7 /* NSData+SRB64Additions.h */,
-				FDA4B25715A9A2E5002FA1A7 /* NSData+SRB64Additions.m */,
 				FDA4B25815A9A2E5002FA1A7 /* SRWebSocket.h */,
 				FDA4B25915A9A2E5002FA1A7 /* SRWebSocket.m */,
 				FDA4B24A15A9A2A4002FA1A7 /* Supporting Files */,
@@ -184,7 +178,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDA4B25B15A9A2E5002FA1A7 /* base64.h in Headers */,
-				FDA4B25C15A9A2E5002FA1A7 /* NSData+SRB64Additions.h in Headers */,
 				FDA4B25E15A9A2E5002FA1A7 /* SRWebSocket.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,6 +225,8 @@
 /* Begin PBXProject section */
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "tiws" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
@@ -285,7 +280,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDA4B25A15A9A2E5002FA1A7 /* base64.c in Sources */,
-				FDA4B25D15A9A2E5002FA1A7 /* NSData+SRB64Additions.m in Sources */,
 				FDA4B25F15A9A2E5002FA1A7 /* SRWebSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
