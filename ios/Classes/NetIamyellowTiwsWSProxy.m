@@ -79,26 +79,34 @@
 
 #pragma Public API
 
--(void)open:(id)url
+-(void)open:(id)args
 {
     if (WS || connected) {
         return;
     }
     
-    ENSURE_SINGLE_ARG(url, NSString);
+    id url = nil;
+    ENSURE_ARG_AT_INDEX(url, args, 0, NSString);
+    id protocols = nil;
+    ENSURE_ARG_OR_NIL_AT_INDEX(protocols, args, 1, NSArray);
 
-    WS = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
+    WS = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]] protocols:protocols];
     WS.delegate = self;
     [WS open];
 }
 
 
-- (void)reconnect:(id)url
+- (void)reconnect:(id)args
 {
     WS.delegate = nil;
     [WS close];
-    ENSURE_SINGLE_ARG(url, NSString);
-    WS = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
+    
+    id url = nil;
+    ENSURE_ARG_AT_INDEX(url, args, 0, NSString);
+    id protocols = nil;
+    ENSURE_ARG_OR_NIL_AT_INDEX(protocols, args, 1, NSArray);
+
+    WS = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]] protocols:protocols];
     WS.delegate = self;
     [WS open];
 }
