@@ -128,4 +128,12 @@
     }    
 }
 
+-(NSNumber*)readyState
+{
+    if (WS == nil) {
+        return [NSNumber numberWithInt:-1];
+    }
+    return [NSNumber numberWithInt:WS.readyState];
+}
+
 @end
