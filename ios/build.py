@@ -5,6 +5,7 @@
 #
 import os, sys, glob, string
 import zipfile
+from datetime import date
 
 cwd = os.path.abspath(os.path.dirname(sys._getframe(0).f_code.co_filename))
 required_module_keys = ['name','version','moduleid','description','copyright','license','copyright','platform','minsdk']
