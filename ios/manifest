@@ -2,7 +2,7 @@
 # this is your module manifest and used by Titanium
 # during compilation, packaging, distribution, etc.
 #
-version: 0.4
+version: 0.5
 apiversion: 2
 description: TiWS
 author: jordi domenech
