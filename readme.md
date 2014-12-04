@@ -1,75 +1,35 @@
-# tiws Module
+# TiWS Module
+
+#ANNOUNCEMENT
+The ownership of this module's repository has been transferred from Jordi Domenech (@iamyellow) to me (@omorandi), in order to ensure
+its active maintenance and to move the project forward.
 
 ## Description
 
-tiws is a very simple Titanium module (iOS / Android) for creating native websockets. 
-it is also possible use tiws with Socket.IO and Now.js, check it out here!
-https://gist.github.com/3071689
+tiws is a very simple Titanium module (iOS / Android) for creating native websockets.
+it is also possible use tiws with Socket.IO and Now.js
 
-tiws is open source (https://github.com/iamyellow/tiws) and uses third parties websocket implementations:
+## Quick Start
 
-* for iOS, SocketRocket:
-https://github.com/square/SocketRocket/
+### Get it [![gitTio](http://gitt.io/badge.png)](http://gitt.io/component/net.iamyellow.tiws)
+Download the latest distribution ZIP-file and consult the [Titanium Documentation](http://docs.appcelerator.com/titanium/latest/#!/guide/Using_a_Module) on how install it, or simply use the [gitTio CLI](http://gitt.io/cli):
 
-* for Android
-https://github.com/codebutler/android-websockets
+    $ gittio install net.iamyellow.tiws
 
-## Accessing the tiws Module
 
-To access this module from JavaScript, you would do the following:
+## Contributors
 
-	var tiws = require("net.iamyellow.tiws");
-
-The tiws variable is a reference to the Module object.	
-
-## Module functions
-
-### createWS
-
-Creates a websocket object.
-
-## Websocket object functions
-
-### open (string uri)
-
-Given an URI, opens the connection.
-
-## reconnect (string uri)
-
-Given an URI, reconnect the connection after an event.
-
-### send (string message)
-
-Sends a string message.
-
-### close ()
-
-Closes a previously opened connection.
-
-## Websocket events
-
-You can add listeners for events: 'open', 'close', 'error' and 'message'.
-
-## Usage
-
-https://gist.github.com/3071689
-
-## Author
-
-jordi domenech
-jordi@iamyellow.net
-http://iamyellow.net
-@iamyellow2
-
-## Feedback and Support
-
-jordi@iamyellow.net
+     9  jordi domenech <jordi@iamyellow.net>
+     8  tom quas <tom@patugo.com>
+     4  AppWerft <rs@hamburger-appwerft.de>
+     4  Hilko Lantinga <h.lantinga@chello.nl>
+     2  Jin-Sih Lin <linpct@gmail.com>
+     2  Olivier Morandi <olivier.morandi@gmail.com>
 
 ## License
 
 ### tiws
-
-Copyright 2012 jordi domenech <jordi@iamyellow.net>
+Copyright 2012-2014 jordi domenech <jordi@iamyellow.net>
 Apache License, Version 2.0
 
 ### Socket.IO
