@@ -4,7 +4,7 @@
 #
 version: 0.5
 apiversion: 2
-description: TiWS
+description: TiWS is a very simple Titanium module (iOS / Android) for creating native websockets.
 author: jordi domenech
 license: Apache License, Version 2.0
 copyright: Copyright (c) 2012 by jordi domenech <jordi@iamyellow.net>
