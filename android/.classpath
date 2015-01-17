@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="build/.apt_generated"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/usr/local/opt/android-sdk/platforms/android-8/android.jar"/>
-	<classpathentry kind="lib" path="/usr/local/opt/android-sdk/add-ons/addon-google_apis-google_inc_-8/libs/maps.jar"/>
-	<classpathentry kind="lib" path="/Users/yellow/Library/Application Support/Titanium/mobilesdk/osx/2.1.5/android/titanium.jar"/>
-	<classpathentry kind="lib" path="/Users/yellow/Library/Application Support/Titanium/mobilesdk/osx/2.1.5/android/js.jar"/>
-	<classpathentry kind="lib" path="/Users/yellow/Library/Application Support/Titanium/mobilesdk/osx/2.1.5/android/kroll-common.jar"/>
-	<classpathentry kind="lib" path="/Users/yellow/Library/Application Support/Titanium/mobilesdk/osx/2.1.5/android/kroll-apt.jar"/>
+	<classpathentry kind="lib" path="/Users/olivier/android-sdk-macosx/platforms/android-14/android.jar"/>
+	<classpathentry kind="lib" path="/Users/olivier/android-sdk-macosx/add-ons/addon-google_apis-google-14/libs/maps.jar"/>
+	<classpathentry kind="lib" path="/Users/olivier/Library/Application Support/Titanium/mobilesdk/osx/3.4.1.GA/android/titanium.jar"/>
+	<classpathentry kind="lib" path="/Users/olivier/Library/Application Support/Titanium/mobilesdk/osx/3.4.1.GA/android/kroll-common.jar"/>
+	<classpathentry kind="lib" path="/Users/olivier/Library/Application Support/Titanium/mobilesdk/osx/3.4.1.GA/android/kroll-apt.jar"/>
+	<classpathentry kind="src" path=".apt_generated">
+		<attributes>
+			<attribute name="optional" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="/Users/olivier/Library/Application Support/Titanium/mobilesdk/osx/3.4.1.GA/android/android-support-v4.jar"/>
+	<classpathentry kind="lib" path="/Users/olivier/Library/Application Support/Titanium/mobilesdk/osx/3.4.1.GA/android/modules/titanium-ui.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -16,6 +16,8 @@
 
 package net.iamyellow.tiws;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 import org.appcelerator.kroll.annotations.Kroll;
 import org.appcelerator.kroll.common.Log;
 import org.appcelerator.kroll.KrollDict;
@@ -24,6 +26,8 @@ import org.appcelerator.titanium.TiContext.OnLifecycleEvent;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.List;
 
 import android.app.Activity;
 
@@ -48,11 +52,11 @@ public class WSProxy extends KrollProxy implements OnLifecycleEvent {
 		connected = false;
 		try {
 			client.disconnect();
-		} 
+		}
 		catch (Exception ex) {
 		}
 		client = null;
-		
+
 		if (TiwsModule.DBG) {
 			Log.d(TiwsModule.LCAT, "* websocket destroyed");
 		}
@@ -89,22 +93,42 @@ public class WSProxy extends KrollProxy implements OnLifecycleEvent {
 	// Methods
 
 	@Kroll.method
-	public void open(String uri) {
+	public void open(Object[] args) {
 		final KrollProxy self = this;
 
+		if (args.length == 0) {
+			throw new IllegalArgumentException("URI argument expected");
+		}
+
+		Object uri = args[0];
+		if (!(uri instanceof String)) {
+			throw new IllegalArgumentException("URI argument must be a string");
+		}
+		String wsUri = (String)uri;
+		List<BasicNameValuePair> extraHeaders = new ArrayList<BasicNameValuePair>();
+		if (args.length > 1) {
+			Object proto = args[1];
+			if (!(proto instanceof String)) {
+				throw new IllegalArgumentException("Protocol argument must be a string");
+			}
+			BasicNameValuePair protocol = new BasicNameValuePair("Sec-WebSocket-Protocol", (String)proto);
+			extraHeaders.add(protocol);
+		}
 		try {
 			if (TiwsModule.DBG) {
 				Log.d(TiwsModule.LCAT, "* creating websocket");
 			}
-			
-			client = new WebSocketClient(new URI(uri), new WebSocketClient.Listener() {
+
+			URI wsURI = new URI(wsUri);
+			Log.d(TiwsModule.LCAT, "* URI: " + wsURI);
+			client = new WebSocketClient(wsURI, new WebSocketClient.Listener() {
 				@Override
 				public void onMessage(byte[] data) {
 					if (client == null) {
 						return;
-					}					
+					}
 				}
-				
+
 				@Override
 				public void onMessage(String message) {
 					if (client == null) {
@@ -121,7 +145,7 @@ public class WSProxy extends KrollProxy implements OnLifecycleEvent {
 					if (client == null) {
 						return;
 					}
-					
+
 					if (TiwsModule.DBG) {
 						Log.d(TiwsModule.LCAT, "* websocket error", error);
 					}
@@ -154,14 +178,14 @@ public class WSProxy extends KrollProxy implements OnLifecycleEvent {
 				@Override
 				public void onConnect() {
 					connected = true;
-					
+
 					KrollDict event = new KrollDict();
 					self.fireEvent("open", event);
 				}
-			}, null);
-			
+			}, extraHeaders);
+
 			client.connect();
-		} 
+		}
 		catch (URISyntaxException ex) {
 			if (TiwsModule.DBG) {
 				Log.d(TiwsModule.LCAT, "* creating exception", ex);
