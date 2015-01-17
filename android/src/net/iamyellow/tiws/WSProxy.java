@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.text.TextUtils;
 
 import com.codebutler.android_websockets.WebSocketClient;
 
@@ -108,11 +109,17 @@ public class WSProxy extends KrollProxy implements OnLifecycleEvent {
 		List<BasicNameValuePair> extraHeaders = new ArrayList<BasicNameValuePair>();
 		if (args.length > 1) {
 			Object proto = args[1];
-			if (!(proto instanceof String)) {
-				throw new IllegalArgumentException("Protocol argument must be a string");
+			if (!(proto instanceof Object[])) {
+				throw new IllegalArgumentException("protocols argument must be an array of strings");
 			}
-			BasicNameValuePair protocol = new BasicNameValuePair("Sec-WebSocket-Protocol", (String)proto);
-			extraHeaders.add(protocol);
+			Object[] protocols = (Object[])proto;
+			for (int i = 0; i < protocols.length; i++) {
+				if (!(protocols[i] instanceof String)) {
+					throw new IllegalArgumentException("protocol at index " + i + " is not a string");
+				}
+			}
+			BasicNameValuePair protocolHeader = new BasicNameValuePair("Sec-WebSocket-Protocol", TextUtils.join(", ", protocols));
+			extraHeaders.add(protocolHeader);
 		}
 		try {
 			if (TiwsModule.DBG) {
