@@ -2,13 +2,13 @@
 // ****************************************************************************************************************
 // test value can be 'raw' | 'socket.io' | 'nowjs'
 
-var test = 'raw',
+var test = 'raw', 
 
 // ****************************************************************************************************************
 // ****************************************************************************************************************
 // REMEMBER to change this with your data
 
-uri = 'ws://192.168.1.5:8080';
+uri = 'ws://<IP:URL>:<PORT>'; 
 
 // ****************************************************************************************************************
 // ****************************************************************************************************************
@@ -18,23 +18,22 @@ if ('raw' === test) {
 	var WS = require('net.iamyellow.tiws').createWS();
 
 	WS.addEventListener('open', function () {
-		Ti.API.debug('ws opened sending hello');
-		WS.send("hello");
+		Ti.API.debug('websocket opened');
 	});
 
-	WS.addEventListener('close', function (e) {
-		Ti.API.info("ws closed - code: " + e.code + " reason: " + e.reason);
+	WS.addEventListener('close', function (ev) {
+		Ti.API.info(ev);
 	});
 
-	WS.addEventListener('error', function (e) {
-		Ti.API.error("Got error: " + e.error);
+	WS.addEventListener('error', function (ev) {
+		Ti.API.error(ev);
 	});
 
-	WS.addEventListener('message', function (e) {
-		Ti.API.log("Got message: " + e.data);
+	WS.addEventListener('message', function (ev) {
+		Ti.API.log(ev);
 	});
-
-	WS.open(uri, ["echo-protocol", "other-proto"]);
+	
+	WS.open(uri);
 }
 
 // ****************************************************************************************************************
@@ -44,7 +43,7 @@ if ('raw' === test) {
 else if ('socket.io' === test) {
 	var io = require('socket.io'),
 	socket = io.connect(uri);
-
+	
 	socket.on('connect', function () {
 		Ti.API.log('connected!')
 	});

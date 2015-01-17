@@ -1,8 +1,0 @@
-"/Users/olivier/Code/tiws/test/build/android/gen/android/support/v7/appcompat/R.java"
-"/Users/olivier/Code/tiws/test/build/android/gen/ti/modules/titanium/ui/R.java"
-"/Users/olivier/Code/tiws/test/build/android/gen/ti/ws/test/ApplicationStylesheet.java"
-"/Users/olivier/Code/tiws/test/build/android/gen/ti/ws/test/AssetCryptImpl.java"
-"/Users/olivier/Code/tiws/test/build/android/gen/ti/ws/test/R.java"
-"/Users/olivier/Code/tiws/test/build/android/gen/ti/ws/test/TiwstestActivity.java"
-"/Users/olivier/Code/tiws/test/build/android/gen/ti/ws/test/TiwstestAppInfo.java"
-"/Users/olivier/Code/tiws/test/build/android/gen/ti/ws/test/TiwstestApplication.java"
