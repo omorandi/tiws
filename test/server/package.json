@@ -1,0 +1,11 @@
+{
+  "name": "wsecho",
+  "version": "1.0.0",
+  "private": true,
+  "description": "websocket echo server",
+  "author": "Olivier Morandi",
+  "license": "MIT",
+  "dependencies": {
+    "websocket": "1.0.X"
+  }
+}
