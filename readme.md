@@ -19,12 +19,13 @@ Download the latest distribution ZIP-file and consult the [Titanium Documentatio
 
 ## Contributors
 
-     9  jordi domenech <jordi@iamyellow.net>
-     8  tom quas <tom@patugo.com>
-     4  AppWerft <rs@hamburger-appwerft.de>
-     4  Hilko Lantinga <h.lantinga@chello.nl>
-     2  Jin-Sih Lin <linpct@gmail.com>
-     2  Olivier Morandi <olivier.morandi@gmail.com>
+    10  Olivier Morandi
+     9  jordi domenech
+     8  tom quas
+     4  Hilko Lantinga
+     4  AppWerft
+     4  ndob
+     2  Jin-Sih Lin
 
 ## License
 
