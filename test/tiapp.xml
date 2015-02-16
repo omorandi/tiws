@@ -51,6 +51,7 @@
 	</mobileweb>
 	<modules>
 		<module platform="iphone" version="0.5">net.iamyellow.tiws</module>
+		<module platform="android" version="0.1.2">net.iamyellow.tiws</module>
 	</modules>
 	<deployment-targets>
 		<target device="android">true</target>
