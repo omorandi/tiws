@@ -48,13 +48,13 @@
 -(void)webSocket:(SRWebSocket*)webSocket didFailWithError:(NSError*)error
 {
     connected  = NO;
-    
+
     if ([self _hasListeners:@"error"]) {
         NSDictionary* event = [NSDictionary dictionaryWithObjectsAndKeys:
                                @"reconnect",@"advice",
                                [error description],@"error",
                                nil];
-        
+
         [self fireEvent:@"error" withObject:event];
     }
 }
@@ -84,13 +84,22 @@
     if (WS || connected) {
         return;
     }
-    
+
     id url = nil;
     ENSURE_ARG_AT_INDEX(url, args, 0, NSString);
     id protocols = nil;
     ENSURE_ARG_OR_NIL_AT_INDEX(protocols, args, 1, NSArray);
+    id headers = nil;
+    ENSURE_ARG_OR_NIL_AT_INDEX(headers, args, 2, NSDictionary);
 
-    WS = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]] protocols:protocols];
+    NSMutableURLRequest* req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    if (headers) {
+        for (NSString* header in headers) {
+            [req setValue:[headers objectForKey:header] forHTTPHeaderField:header];
+        }
+    }
+
+    WS = [[SRWebSocket alloc] initWithURLRequest:req protocols:protocols];
     WS.delegate = self;
     [WS open];
 }
@@ -100,7 +109,7 @@
 {
     WS.delegate = nil;
     [WS close];
-    
+
     id url = nil;
     ENSURE_ARG_AT_INDEX(url, args, 0, NSString);
     id protocols = nil;
@@ -115,7 +124,7 @@
 {
     if (WS && connected) {
         [WS close];
-       
+
     }
 }
 
@@ -125,7 +134,7 @@
 
     if (WS && connected) {
         [WS send:msg];
-    }    
+    }
 }
 
 -(NSNumber*)readyState
