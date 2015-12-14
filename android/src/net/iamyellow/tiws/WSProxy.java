@@ -205,6 +205,13 @@ public class WSProxy extends KrollProxy implements OnLifecycleEvent {
 	public void close() {
 		cleanup();
 	}
+	
+	
+	@Kroll.method
+	public void reconnect(Object[] args) {
+		cleanup();
+		open(args);
+	}
 
 	@Kroll.method
 	public void send(String message) {
