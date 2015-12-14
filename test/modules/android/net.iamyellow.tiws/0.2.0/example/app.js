@@ -2,13 +2,13 @@
 // ****************************************************************************************************************
 // test value can be 'raw' | 'socket.io' | 'nowjs'
 
-var test = 'raw',
+var test = 'raw', 
 
 // ****************************************************************************************************************
 // ****************************************************************************************************************
 // REMEMBER to change this with your data
 
-uri = 'ws://ws.websocketstest.com:80/service';
+uri = 'ws://<IP:URL>:<PORT>'; 
 
 // ****************************************************************************************************************
 // ****************************************************************************************************************
@@ -18,58 +18,22 @@ if ('raw' === test) {
 	var WS = require('net.iamyellow.tiws').createWS();
 
 	WS.addEventListener('open', function () {
-		Ti.API.debug('ws opened');
+		Ti.API.debug('websocket opened');
 	});
 
-	WS.addEventListener('close', function (e) {
-		Ti.API.info("ws closed - code: " + e.code + " reason: " + e.reason);
+	WS.addEventListener('close', function (ev) {
+		Ti.API.info(ev);
 	});
 
-	WS.addEventListener('error', function (e) {
-		Ti.API.error("Got error: " + e.error);
+	WS.addEventListener('error', function (ev) {
+		Ti.API.error(ev);
 	});
 
-    var proto_version;
-    var stream_cnt = 0;
-
-	WS.addEventListener('message', function (e) {
-		Ti.API.log("Got message: " + e.data);
-        arr = e.data.split(',',2);
-        cmd = arr[0];
-        response = arr[1];
-
-        if (cmd == 'connected') {
-          Ti.API.log("got response: " + response);
-          WS.send("version,");
-        }
-        else if (cmd == 'version') {
-          Ti.API.log("got response: " + response);
-          proto_version = response;
-          WS.send("echo,test message");
-        }
-        else if (cmd == 'echo' && response == 'test message') {
-          Ti.API.log("got response: " + response);
-          if (proto_version == 'hybi-draft-07') {
-            WS.send("ping,");
-          }
-          else {
-            WS.send("timer,");
-          }
-        }
-        else if (cmd == 'time') {
-          stream_cnt = stream_cnt + 1;
-          Ti.API.log("got response: " + response);
-          if (stream_cnt == 4) {
-            WS.reconnect(uri, ["echo-protocol", "other-proto"]);
-          }
-          else if (stream_cnt > 5) {
-            WS.close();
-            alert('looks good');
-          }
-        }
+	WS.addEventListener('message', function (ev) {
+		Ti.API.log(ev);
 	});
-
-	WS.open(uri, ["echo-protocol", "other-proto"]);
+	
+	WS.open(uri);
 }
 
 // ****************************************************************************************************************
@@ -79,7 +43,7 @@ if ('raw' === test) {
 else if ('socket.io' === test) {
 	var io = require('socket.io'),
 	socket = io.connect(uri);
-
+	
 	socket.on('connect', function () {
 		Ti.API.log('connected!')
 	});
