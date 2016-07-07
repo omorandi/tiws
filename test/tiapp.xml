@@ -50,7 +50,7 @@
 		<theme>default</theme>
 	</mobileweb>
 	<modules>
-		<module platform="iphone" version="0.6">net.iamyellow.tiws</module>
+		<module platform="iphone" version="0.7">net.iamyellow.tiws</module>
 		<module platform="android" version="0.2.0">net.iamyellow.tiws</module>
 	</modules>
 	<deployment-targets>
@@ -60,5 +60,5 @@
 		<target device="iphone">true</target>
 		<target device="mobileweb">false</target>
 	</deployment-targets>
-	<sdk-version>5.0.2.GA</sdk-version>
+	<sdk-version>5.2.2.GA</sdk-version>
 </ti:app>

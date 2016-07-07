@@ -24,15 +24,6 @@
     return [super init];
 }
 
--(void)dealloc
-{
-    if ([WS retainCount] == 1) {
-        // as SRWebScoket library uses ARC, let's be careful releasing the object
-        // so, if retain counter = 1, we are sure nobody else retains it
-        RELEASE_TO_NIL(WS);
-    }
-    [super dealloc];
-}
 
 #pragma WebSocket Delegate
 
@@ -64,7 +55,7 @@
     connected = NO;
 
     if ([self _hasListeners:@"close"]) {
-        NSDictionary* event = [NSDictionary dictionaryWithObjectsAndKeys:NUMINT(code),@"code",reason,@"reason",nil];
+        NSDictionary* event = [NSDictionary dictionaryWithObjectsAndKeys:NUMINTEGER(code),@"code",reason,@"reason",nil];
         [self fireEvent:@"close" withObject:event];
     }
 }
