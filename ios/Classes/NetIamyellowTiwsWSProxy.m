@@ -62,6 +62,10 @@
 
 -(void)webSocket:(SRWebSocket*)webSocket didReceiveMessage:(id)data
 {
+    if ([data isKindOfClass:[NSData class]]) {
+		data = [[TiBlob alloc] initWithData:data mimetype:@"application/octet-stream"];
+	}
+
     if ([self _hasListeners:@"message"]) {
         NSDictionary* event = [NSDictionary dictionaryWithObjectsAndKeys:data,@"data",nil];
         [self fireEvent:@"message" withObject:event];
@@ -121,7 +125,14 @@
 
 -(void)send:(id)msg
 {
-    ENSURE_SINGLE_ARG(msg, NSString);
+    ENSURE_SINGLE_ARG(msg, NSObject);
+    if ([msg isKindOfClass:[NSString class]]) {
+        msg = [TiUtils stringValue:msg];
+    } else if ([msg isKindOfClass:[TiBlob class]]) {
+        msg = [msg data];
+    } else {
+        NSAssert(NO, @"Argument type must be NSString or TiBlob");
+    }
 
     if (WS && connected) {
         [WS send:msg];

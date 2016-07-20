@@ -14,7 +14,9 @@
 //   limitations under the License.
 //
 
+#import "TiBlob.h"
 #import "TiProxy.h"
+#import "TiUtils.h"
 #import "SRWebSocket.h"
 
 @interface NetIamyellowTiwsWSProxy : TiProxy <SRWebSocketDelegate> 
