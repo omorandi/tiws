@@ -23,6 +23,7 @@ import org.appcelerator.kroll.common.Log;
 import org.appcelerator.kroll.KrollDict;
 import org.appcelerator.kroll.KrollProxy;
 import org.appcelerator.titanium.TiContext.OnLifecycleEvent;
+import org.appcelerator.titanium.TiBlob;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -134,6 +135,10 @@ public class WSProxy extends KrollProxy implements OnLifecycleEvent {
 					if (client == null) {
 						return;
 					}
+
+					KrollDict event = new KrollDict();
+					event.put("data", TiBlob.blobFromData(data));
+					self.fireEvent("message", event);
 				}
 
 				@Override
