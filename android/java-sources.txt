@@ -1,0 +1,5 @@
+"/Users/InGrowth/Documents/Projects/Ti-tiws/android/build/generated/java/net/iamyellow/tiws/TiwsBootstrap.java"
+"/Users/InGrowth/Documents/Projects/Ti-tiws/android/src/com/codebutler/android_websockets/HybiParser.java"
+"/Users/InGrowth/Documents/Projects/Ti-tiws/android/src/com/codebutler/android_websockets/WebSocketClient.java"
+"/Users/InGrowth/Documents/Projects/Ti-tiws/android/src/net/iamyellow/tiws/TiwsModule.java"
+"/Users/InGrowth/Documents/Projects/Ti-tiws/android/src/net/iamyellow/tiws/WSProxy.java"
